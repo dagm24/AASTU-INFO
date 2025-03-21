@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/images/icons8-academy-30.png">
+     <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/academics.css">
+    <title>Acadamics</title>
+  </head>
+  <header>
+    <div class="home">
+      <div class="navbar">
+        <div class="container">
+          <div class="content">
+            <b class="aastu">
+              <span>AASTU</span>
+              <span class="info">INFO</span>
+            </b>
+          </div>
+          <div class="column">
+            <div class="nav-links">
+              <div class="nav-link"><a href="../../index.html">Home</a></div>
+              <div class="nav-link"><a href="./aboutus.html">About Us</a></div>
+              <div class="nav-link"><a href="./acadamics.html">Academics</a></div>
+              <div class="nav-link"><a href="./admission.html">Admission</a></div>
+              <div class="nav-link"><a href="./student union.html">Student Union</a></div>
+              <div class="nav-link-dropdown">
+                <div class="nav-link">Student Life</div>
+                <img class="chevron-down-icon" alt="Dropdown Icon" src="../assets/images/chevron.png" />
+                <div class="dropdown-content">
+                   <li class="dropdown-item"><a href="./club.html">Clubs</a></li>
+                  <li class="dropdown-item"><a href="./blocks.html">Blocks</a></li>
+                  <li class="dropdown-item"><a href="./religious.html">Religious Asscociation</a></li>
+                </div>
+              </div>
+            </div>
+            <!-- Contact Us Button inside the navbar -->
+            <a class="contact-link" href="./contactUs.html">
+              <button class="contact-btn">
+                <span class="contact-btn-text">Contact Us</span>
+              </button>
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+   <main>
+     
+      <article class="first-article">
+        <section class="acadamics-text">
+          <strong>Explore</strong>
+          <h1>Discover <strong>Undergraduate</strong> Programs</h1>
+          <p class="first-paragraph">
+            AASTU provides diverse undergraduate programs in the college of
+            Natural and Applied Sciences. These 
+            programs are crafted to develop critical thinking, 
+            encourage innovation and emphasize practical
+            applications, preparing students for successful careers
+            in their fields.
+          </p>
+          <div class="noof-engandapp">
+<div><pre><strong>8</strong> 
+  Collage of engineering</pre></div>
+<div><pre><strong>4</strong></pre>
+  Collage of Natural and Applied Science</div>
+          </div>
+          <button id="learnmore-button">Learn More</button>
+          <div id ="learnmore-container"  >
+            Addis Ababa Science and Technology University (AASTU) is a prominent institution in Ethiopia, established in 2011. It is the first university in Ethiopia dedicated to science and technology, reflecting the country's commitment to technological advancement. The university offers a wide range of undergraduate, 
+            postgraduate, and PhD programs across its five science and technology colleges1
+AASTU's academic programs are designed to meet both national and continental demands, with a
+ strong emphasis on research and innovation. The university has established eight centers of
+  excellence, aiming to become a research epicenter1. The academic calendar is structured to
+   provide a comprehensive education, with a focus on practical applications and 
+   sustainable practices.
+The university's vision is to be an internationally recognized hub of science and technology 
+by 2025. It is accountable to the Ethiopian Ministry of Science and Technology, 
+highlighting its strategic importance in the country's development1. 
+AASTU's mission includes delivering high standards in teaching, research, 
+and community services
+For more detailed information, you can visit the AASTU website.
+             </div>
+
+           
+        </section>
+        <section class="acadamics-image">
+          <img src="../assets/images/academics.jfif" alt="image">
+        </section>
+        
+      </article>
+      <article class="second-article">
+        <section class="academics-text">
+       <strong>Explore</strong>
+       <h1>Availabel Courses</h1>
+       <p>Discover diverse undergraduate programs designed for your academic journey.</p>
+        </section>
+
+        <section class="degreeboxes-container">
+<nav class="second-nav">
+  <button id="viewall-btn">View All</button>
+  <button class="nav2" data-target="engineering">College of Engineering</button>
+  <button class="nav2" data-target="applied">College of Applied Science</button>
+</nav>
+
+<!-- Update the department sections -->
+<div id="engineering-departments">
+  <span id="collageofEngineering">College Of Engineering</span>
+  
+  <!-- First 3 visible engineering departments -->
+  <div class="bachelordegree-box">
+    <h2>1. Bachelor of Science degree in Architecture <span class="department-span">Department</span></h2>
+    <p>Architecture
+      The Architecture Department at AASTU provides an extensive education in architecture, emphasizing design principles, construction techniques, and sustainable practices in the built environment
+    </p>
+    <p><img src="../assets/images/icons8-location-50.png" alt="location of Campus" class="icons"> Addis Ababa &nbsp;&nbsp;<img src="../assets/images/icons8-time-50.png" alt="year to complete the field" class="icons"> 5years</p>
+  </div>
+
+  <div class="bachelordegree-box">
+    <h2>2. Bachelor of Science degree in Mining Engineering <span class="department-span">Department</span></h2>
+    <p>The Mining Engineering Department at AASTU offers a comprehensive education in mining engineering, focusing on mineral exploration, extraction techniques, and sustainable practices in resource management. The program emphasizes practical applications and innovation, preparing students for successful careers in the mining industry</p>
+    <p><img src="../assets/images/icons8-location-50.png" alt="location of Campus" class="icons"> Addis Ababa &nbsp;&nbsp;<img src="../assets/images/icons8-time-50.png" alt="year to complete the field" class="icons"> 5years</p>
+  </div>
+
+  <div class="bachelordegree-box">
+    <h2>3. Bachelor of Science degree in Chemical Engineering <span class="department-span">Department</span></h2>
+    <p>The program provides an in-depth education in chemical engineering emphasizing chemical processes, materials science, and sustainable practices in industrial production and environment management.</p>
+    <p><img src="../assets/images/icons8-location-50.png" alt="location of Campus" class="icons"> Addis Ababa &nbsp;&nbsp;<img src="../assets/images/icons8-time-50.png" alt="year to complete the field" class="icons"> 5years</p>
+  </div>
+
+  <!-- Hidden engineering departments -->
+  <div id="hidden-engineering" style="display:none;">
+    <div class="bachelordegree-box">
+      <h2>4. Bachelor of Science degree in Software Engineering <span class="department-span">Department</span></h2>
+      <p>The Software Engineering Department at AASTU offers a comprehensive education in software development, focusing on programming, system design, and software project management. The program emphasizes practical applications and innovation, preparing students for successful careers in the tech industry</p>
+      <p><img src="../assets/images/icons8-location-50.png" alt="location of Campus" class="icons"> Addis Ababa &nbsp;&nbsp;<img src="../assets/images/icons8-time-50.png" alt="year to complete the field" class="icons"> 5years</p>
+    </div>
+
+    <div class="bachelordegree-box">
+      <h2>5. Bachelor of Science degree in Electrical Engineering <span class="department-span">Department</span></h2>
+      <p>The Electrical Engineering Department at AASTU offers a robust education in electrical systems, focusing on circuit design, power systems, and electronics. The program emphasizes practical applications and innovation, preparing students for successful careers in the electrical engineering field</p>
+      <p><img src="../assets/images/icons8-location-50.png" alt="location of Campus" class="icons"> Addis Ababa &nbsp;&nbsp;<img src="../assets/images/icons8-time-50.png" alt="year to complete the field" class="icons"> 5years</p>
+    </div>
+
+    <div class="bachelordegree-box">
+      <h2>6. Bachelor of Science degree in ElectroMechanical Engineering <span class="department-span">Department</span></h2>
+      <p>The Electromechanical Engineering Department at AASTU offers a unique blend of electrical and mechanical engineering education. The program focuses on the design, development, and maintenance of electromechanical systems, emphasizing practical applications and innovation. Students are prepared for careers in industries such as automation, manufacturing, and robotics</p>
+      <p><img src="../assets/images/icons8-location-50.png" alt="location of Campus" class="icons"> Addis Ababa &nbsp;&nbsp;<img src="../assets/images/icons8-time-50.png" alt="year to complete the field" class="icons"> 5years</p>
+    </div>
+
+    <div class="bachelordegree-box">
+      <h2>7. Bachelor of Science degree in Environmental Engineering <span class="department-span">Department</span></h2>
+      <p>This program offers a comprehensive education in environmental engineering, focusing on sustainable practices and environmental protection strategies.</p>
+      <p><img src="../assets/images/icons8-location-50.png" alt="location of Campus" class="icons"> Addis Ababa &nbsp;&nbsp;<img src="../assets/images/icons8-time-50.png" alt="year to complete the field" class="icons"> 5years</p>
+    </div>
+
+    <div class="bachelordegree-box">
+      <h2>8. Bachelor of Science degree in Civil Engineering <span class="department-span">Department</span></h2>
+      <p>This program offers a comprehensive education in civil engineering, focusing on structural design, construction management, and sustainable infrastructure development.</p>
+      <p><img src="../assets/images/icons8-location-50.png" alt="location of Campus" class="icons"> Addis Ababa &nbsp;&nbsp;<img src="../assets/images/icons8-time-50.png" alt="year to complete the field" class="icons"> 5years</p>
+    </div>
+
+    <div class="bachelordegree-box">
+      <h2>9. Bachelor of Science degree in Mechanical Engineering <span class="department-span">Department</span></h2>
+      <p>The program provides an in-depth education in mechanical engineering emphasizing mechanical systems, thermodynamics, and manufacturing processes.</p>
+      <p><img src="../assets/images/icons8-location-50.png" alt="location of Campus" class="icons"> Addis Ababa &nbsp;&nbsp;<img src="../assets/images/icons8-time-50.png" alt="year to complete the field" class="icons"> 5years</p>
+    </div>
+  </div>
+</div>
+
+<!-- Applied Science Departments -->
+<div id="applied-departments" style="display:none;">
+  <span id="collageofApplied">College Of Applied Science</span>
+  
+  <div class="bachelordegree-box">
+    <h2>1. Bachelor of Science degree in Biotechnology <span class="department-span">Department</span></h2>
+    <p>This program offers a comprehensive education in biotechnology, focusing on molecular biology, genetic engineering, and biotechnological applications.</p>
+    <p><img src="../assets/images/icons8-location-50.png" alt="location of Campus" class="icons"> Addis Ababa &nbsp;&nbsp;<img src="../assets/images/icons8-time-50.png" alt="year to complete the field" class="icons"> 5years</p>
+  </div>
+
+  <div class="bachelordegree-box">
+    <h2>2. Bachelor of Science degree in Food Science <span class="department-span">Department</span></h2>
+    <p>This program offers a comprehensive education in food science, focusing on food processing, safety, and quality management.</p>
+    <p><img src="../assets/images/icons8-location-50.png" alt="location of Campus" class="icons"> Addis Ababa &nbsp;&nbsp;<img src="../assets/images/icons8-time-50.png" alt="year to complete the field" class="icons"> 5years</p>
+  </div>
+
+  <div class="bachelordegree-box">
+    <h2>3. Bachelor of Science degree in Geology <span class="department-span">Department</span></h2>
+    <p>This program offers a comprehensive education in geology, focusing on earth sciences, mineral exploration, and environmental geology.</p>
+    <p><img src="../assets/images/icons8-location-50.png" alt="location of Campus" class="icons"> Addis Ababa &nbsp;&nbsp;<img src="../assets/images/icons8-time-50.png" alt="year to complete the field" class="icons"> 5years</p>
+  </div>
+
+  <div class="bachelordegree-box">
+    <h2>4. Bachelor of Science degree in Industrial Chemistry <span class="department-span">Department</span></h2>
+    <p>The Industrial Chemistry Department focuses on the application of chemical principles and processes in industrial settings. It prepares students to work in various industries, including pharmaceuticals, petrochemicals, and materials science by providing a strong foundation in chemistry, engineering, and technology. The curriculum emphasizes practical skills, innovation, and sustainable practices to address real-world challenges in industrial production and environmental management.</p>
+    <p><img src="../assets/images/icons8-location-50.png" alt="location of Campus" class="icons"> Addis Ababa &nbsp;&nbsp;<img src="../assets/images/icons8-time-50.png" alt="year to complete the field" class="icons"> 5years</p>
+  </div>
+</div>
+
+        </section>
+      </article>
+    </main>
+    <hr>
+    
+    <footer class="footer"></footer>
+      <div class="footer-content">
+        <div class="footer-links-section">
+          <div class="brand">
+            <b class="brand-name">
+              <span>AASTU</span>
+              <span class="brand-info">INFO</span>
+            </b>
+          </div>
+
+          <nav class="footer-column">
+            <h3 class="footer-title">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="../../index.html" class="footer-link">Home</a></li>
+              <li><a href="../pages/aboutus.html" class="footer-link">About us</a></li>
+              <li>
+                <a href="../pages/acadamics.html" class="footer-link"
+                  >Academics</a
+                >
+              </li>
+              <li><a href="../pages/admission.html" class="footer-link">Admission</a></li>
+              <li>
+                <a href="../pages/student union.html" class="footer-link"
+                  >Student union</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <nav class="footer-column">
+            <h3 class="footer-title">Student Life</h3>
+            <ul class="footer-links">
+              <li><a href="../pages/club.html" class="footer-link">Clubs</a></li>
+              <li><a href="../pages/blocks.html" class="footer-link">Blocks</a></li>
+              <li>
+                <a href="./src/pages/religious.html" class="footer-link"
+                  >Religious Association</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <section class="newsletter">
+          <h3 class="footer-title">Subscribe</h3>
+          <p class="newsletter-text">
+            Join our newsletter to stay up to date on features and releases.
+          </p>
+          <form class="newsletter-form">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Enter your email"
+            />
+            <button type="submit" class="newsletter-button">Subscribe</button>
+          </form>
+          <p class="consent-text">
+            By subscribing you agree to with our
+            <span class="privacy-policy">Privacy Policy</span> and provide
+            consent to receive updates from our company.
+          </p>
+        </section>
+      </div>
+
+      <div class="footer-credits">
+        <div class="divider"></div>
+        <div class="credits-row">
+          <p class="copyright">© 2025 AASTU INFO. All rights reserved.</p>
+          <nav class="policy-links">
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+            <a href="#" class="footer-link">Cookies Settings</a>
+          </nav>
+          <div class="social-icons">
+            <img src="../assets/images/facebook.png" alt="Facebook" />
+            <img src="../assets/images/instagram.png" alt="Instagram" />
+            <img src="../assets/images/twitter.png" alt="X" />
+            <img src="../assets/images/linkedin.png" alt="LinkedIn" />
+            <img src="../assets/images/youtube.png" alt="YouTube" />
+          </div>
+        </div>
+      </div>
+    </footer>
+  <script src="../scripts/acadamics.js"></script>
+  </body>
+</html>
