@@ -244,24 +244,28 @@
         </div>
 
         <section class="newsletter">
-          <h3 class="footer-title">Subscribe</h3>
-          <p class="newsletter-text">
+        <h3 class="footer-title">Subscribe</h3>
+        <p class="newsletter-text">
             Join our newsletter to stay up to date on features and releases.
-          </p>
-          <form class="newsletter-form">
+        </p>
+        
+        <form class="newsletter-form" action="subscribe.php" method="POST">
             <input
               type="email"
               class="newsletter-input"
               placeholder="Enter your email"
+              name="email"
+              required
             />
-            <button type="submit" class="newsletter-button">Subscribe</button>
-          </form>
-          <p class="consent-text">
+            <button type="submit" class="newsletter-button" name="subscribe">Subscribe</button>
+        </form>
+        <p class="consent-text">
             By subscribing you agree to with our
             <span class="privacy-policy">Privacy Policy</span> and provide
             consent to receive updates from our company.
-          </p>
-        </section>
+        </p>
+        
+    </section>
       </div>
 
       <div class="footer-credits">
