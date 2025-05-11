@@ -1,45 +1,63 @@
-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+}
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-        th {
-            background-color: #f2f2f2;
-        }
+h2 {
+    color: #555;
+    margin-top: 30px;
+    text-align: center;
+}
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
 
-        /* Adjust column widths */
-        th:nth-child(1), /* User ID */
-        td:nth-child(1) {
-            width: 5%; /* Adjust as needed */
-        }
+ul li {
+    margin: 15px 0;
+}
 
-        th:nth-child(2), /* Username */
-        td:nth-child(2) {
-            width: 15%; /* Adjust as needed */
-        }
+ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #007BFF;
+    padding: 15px 25px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+    width: 200px;
+}
 
-        th:nth-child(3), /* E-mail */
-        td:nth-child(3) {
-            width: 20%; /* Adjust as needed - reduced width */
-        }
+ul li a:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
 
-        th:nth-child(4), /* Inquiry */
-        td:nth-child(4) {
-            width: 30%; /* Adjust as needed */
-        }
+a.logout {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    color: #FF4500;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid #FF4500;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-        th:nth-child(5), /* Action */
-        td:nth-child(5) {
-            width: 30%; /* Adjust as needed */
-        }
+a.logout:hover {
+    background-color: #FF4500;
+    color: white;
+    text-decoration: none;
+}
