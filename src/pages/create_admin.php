@@ -1,61 +1,84 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include 'db_connect.php'; 
+$username = $password = "";
+$username_error = $password_error = $success = "";
 
-// --- Configuration ---
-$new_username = "Dagi";  
-$new_password = "12345678"; 
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = trim($_POST["username"]);
+    $password = $_POST["password"];
 
-// --- Validation ---
-$username_error = "";
-$password_error = "";
+    // Username validation
+    if (empty($username)) {
+        $username_error = "Username is required.";
+    } elseif (strlen($username) < 3) {
+        $username_error = "Username must be at least 3 characters.";
+    } elseif (!preg_match("/^[a-zA-Z0-9_]+$/", $username)) {
+        $username_error = "Only letters, numbers, and underscores allowed.";
+    }
 
-// Validate Username
-if (empty($new_username)) {
-    $username_error = "Username is required.";
-} elseif (strlen($new_username) < 3) {
-    $username_error = "Username must be at least 3 characters long.";
-} elseif (!preg_match("/^[a-zA-Z0-9_]+$/", $new_username)) {
-    $username_error = "Username can only contain letters, numbers, and underscores.";
-}
-
-// Validate Password
-if (empty($new_password)) {
-    $password_error = "Password is required.";
-} elseif (strlen($new_password) < 8) {
-    $password_error = "Password must be at least 8 characters long.";
-} elseif (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+]).*$/", $new_password)) {
-    $password_error = "Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character.";
-}
-
-// --- Hash the password and insert if validation passes ---
-if (empty($username_error) && empty($password_error)) {
-    // --- Hash the password ---
-    $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
-
-    // --- Prepare the SQL statement ---
-    $sql = "INSERT INTO admins (username, password) VALUES (?, ?)";
-    $stmt = $conn->prepare($sql);
-
-    // --- Bind parameters ---
-    $stmt->bind_param("ss", $new_username, $hashed_password);
-
-    // --- Execute the statement ---
-    if ($stmt->execute()) {
-        echo "Admin user created successfully!";
+    // Password validation
+    $password_errors = [];
+    if (empty($password)) {
+        $password_errors[] = "Password is required.";
     } else {
-        echo "Error creating admin user: " . $stmt->error;
+        if (strlen($password) < 8) $password_errors[] = "at least 8 characters";
+        if (!preg_match("/[a-z]/", $password)) $password_errors[] = "one lowercase letter";
+        if (!preg_match("/[A-Z]/", $password)) $password_errors[] = "one uppercase letter";
+        if (!preg_match("/[0-9]/", $password)) $password_errors[] = "one number";
+        if (!preg_match("/[\W]/", $password)) $password_errors[] = "one special character";
     }
 
-    // --- Close the statement and connection ---
-    $stmt->close();
+    if (!empty($password_errors)) {
+        $password_error = "Password must contain: " . implode(", ", $password_errors) . ".";
+    }
+
+    // Insert if no errors
+    if (empty($username_error) && empty($password_error)) {
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $stmt = $conn->prepare("INSERT INTO admins (username, password) VALUES (?, ?)");
+        $stmt->bind_param("ss", $username, $hashed_password);
+
+        if ($stmt->execute()) {
+            $success = "Admin created successfully.";
+            $username = $password = "";
+        } else {
+            $username_error = "Error: " . $stmt->error;
+        }
+        $stmt->close();
+    }
     $conn->close();
-} else {
-    // Display Errors
-    if (!empty($username_error)) {
-        echo "<p style='color:red;'>Username Error: " . $username_error . "</p>";
-    }
-    if (!empty($password_error)) {
-        echo "<p style='color:red;'>Password Error: " . $password_error . "</p>";
-    }
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Admin</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        .error { color: red; }
+        .success { color: green; }
+        input { display: block; margin-bottom: 10px; padding: 8px; width: 300px; }
+    </style>
+</head>
+<body>
+    <h2>Create Admin</h2>
+
+    <?php if ($success) echo "<p class='success'>$success</p>"; ?>
+    <form method="POST">
+        <label>Username:</label>
+        <input type="text" name="username" value="<?php echo htmlspecialchars($username); ?>">
+        <span class="error"><?php echo $username_error; ?></span>
+
+        <label>Password:</label>
+        <input type="password" name="password">
+        <span class="error"><?php echo $password_error; ?></span>
+
+        <button type="submit">Create Admin</button>
+    </form>
+</body>
+</html>
