@@ -5,6 +5,7 @@ const viewall = document.getElementById("viewall-btn");
 const hiddenEng = document.getElementById("hidden-engineering");
 const appliedDepts = document.getElementById("applied-departments");
 const engineeringDepts = document.getElementById("engineering-departments");
+const academicsContainer = document.getElementById("dynamic-academics"); // Placeholder for dynamic content
 
 // Add initial state setup
 window.onload = function () {
@@ -32,6 +33,25 @@ window.onload = function () {
       showDepartments(target);
     });
   });
+
+  // Load academic programs dynamically
+  if (academicsContainer) {
+    fetch("./acadamics.php")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to load academic programs.");
+        }
+        return response.text();
+      })
+      .then((data) => {
+        academicsContainer.innerHTML = data;
+      })
+      .catch((error) => {
+        console.error("Error loading academic programs:", error);
+        academicsContainer.innerHTML =
+          "<p>Failed to load academic programs. Please try again later.</p>";
+      });
+  }
 };
 
 function learnmore() {
