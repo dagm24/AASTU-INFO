@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (exploreBtn) {
     exploreBtn.addEventListener("click", function () {
-      window.location.href = "../pages/offices.html";
+      window.location.href = "../pages/offices.php";
     });
   }
 });
