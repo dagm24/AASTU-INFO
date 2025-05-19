@@ -25,7 +25,7 @@ th, td {
 }
 
 th {
-    background-color: #4CAF50;
+  background-color: #8c620d;
     color: white;
 }
 
@@ -35,7 +35,7 @@ tr:hover {
 
 a {
     text-decoration: none;
-    color: #4CAF50;
+    background-color: #8c620d;
 }
 
 a:hover {
@@ -69,7 +69,7 @@ textarea {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #8c620d;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -78,5 +78,5 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #8c620d;
 }
