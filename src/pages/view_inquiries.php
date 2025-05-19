@@ -19,7 +19,7 @@ if ($result === false) {
 <html>
 <head>
     <title>User Inquiries</title>
-    <link rel="stylesheet" href="../styles/admin panel.css">
+    <link rel="stylesheet" href="../styles/view_inquiries.css">
 </head>
 <body>
     <h1>User Inquiries</h1>
@@ -57,7 +57,7 @@ if ($result === false) {
             ?>
         </tbody>
     </table>
-    <a href="admin.php">Back to Admin Panel</a>
+    <a href="admin.php">Back to Admin Panel</a><br><br>
     <a href="logout.php">Logout</a>
 </body>
 </html>

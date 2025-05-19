@@ -58,12 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Create Admin</title>
-    <style>
-        body { font-family: Arial; margin: 40px; }
-        .error { color: red; }
-        .success { color: green; }
-        input { display: block; margin-bottom: 10px; padding: 8px; width: 300px; }
-    </style>
+    <link rel="stylesheet" href="../styles/create_admin.css" />
+
 </head>
 <body>
     <h2>Create Admin</h2>
