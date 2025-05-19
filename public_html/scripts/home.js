@@ -1,4 +1,4 @@
-const form = document.getElementById("newsletter-form");
+const form = document.querySelector(".newsletter-form");
 const messageBox = document.getElementById("form-message");
 
 form.addEventListener("submit", function (e) {
@@ -14,18 +14,17 @@ form.addEventListener("submit", function (e) {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-      return response.json();
+      return response.json(); // Parse JSON response
     })
     .then((data) => {
-      if (data.status === "success") {
-        // Show success message
-        messageBox.textContent = data.message;
-        messageBox.style.color = "green";
-      } else {
-        // Show error or warning message
-        messageBox.textContent = data.message;
-        messageBox.style.color = data.status === "error" ? "red" : "#f0ad4e"; // red for error, orange for warning
-      }
+      // Update the message box based on the response
+      messageBox.textContent = data.message;
+      messageBox.style.color =
+        data.status === "success"
+          ? "green"
+          : data.status === "warning"
+          ? "#f0ad4e" // Orange for warnings
+          : "red"; // Red for errors
     })
     .catch((error) => {
       // Handle network or other errors

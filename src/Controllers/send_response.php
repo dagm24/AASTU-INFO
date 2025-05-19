@@ -2,25 +2,20 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require_once '../../phpmailer/src/Exception.php'; // Corrected path to Exception.php
-require_once '../../phpmailer/src/PHPMailer.php'; // Corrected path to PHPMailer.php
-require_once '../../phpmailer/src/SMTP.php'; // Corrected path to SMTP.php
+// Load Composer's autoloader
+require_once __DIR__ . '/../../vendor/autoload.php';
+
 
 $from = $to = $subject = $message = ""; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if the expected keys exist in the $_POST array
     if (isset($_POST['from'], $_POST['to'], $_POST['subject'], $_POST['message'])) {
         $from = trim($_POST['from']);
         $to = trim($_POST['to']);
         $subject = trim($_POST['subject']);
         $message = trim($_POST['message']);
 
-        // Debug outputs
-        echo "From: $from<br>";
-        echo "To: $to<br>";
-
-        // Validate email formats
+        // Validate email addresses
         if (!filter_var($from, FILTER_VALIDATE_EMAIL) || !filter_var($to, FILTER_VALIDATE_EMAIL)) {
             echo "Invalid email format.";
             exit;
@@ -33,8 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com'; 
             $mail->SMTPAuth = true;
-            $mail->Username = 'dagmawityoseph0@gmail.com'; 
-            $mail->Password = 'vivm ojbe czjh fufc'; // Ensure this is secure
+            $mail->Username = 'tibebudag07@gmail.com';  // Your Gmail address
+            $mail->Password = 'ymdf djny uqjc ohzo';    // Your Gmail app password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
@@ -47,39 +42,103 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Send email
             $mail->send();
-            echo "Email sent successfully.";
+            echo "✅ Email sent successfully.";
         } catch (Exception $e) {
-            echo "Mailer Error: " . $mail->ErrorInfo;
+            echo "❌ Mailer Error: " . $mail->ErrorInfo;
         }
-    } 
+    } else {
+        echo "❌ Missing required fields.";
+    }
 }
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Send Response</title>
-    <!-- Corrected path to the CSS file -->
-    <link rel="stylesheet" href="../../public_html/styles/sendResponse.css">
+    <link rel="stylesheet" href="../../public/assets/styles/sendResponse.css"> <!-- Corrected path to CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h2>Send Email Response</h2>
-    <form action="" method="POST">
-        <label for="from">Your Email (Sender):</label>
-        <input type="email" name="from" required>
+    <div class="container">
+        <h2>Send Email Response</h2>
+        <form action="" method="POST">
+            <label for="from">Your Email (Sender):</label>
+            <input type="email" name="from" value="tibebudag07@gmail.com" readonly> <!-- Pre-filled sender email -->
 
-        <label for="to">Recipient's Email:</label>
-        <input type="email" name="to" required>
+            <label for="to">Recipient's Email:</label>
+            <input type="email" name="to" required>
 
-        <label for="subject">Subject:</label>
-        <input type="text" name="subject" required>
+            <label for="subject">Subject:</label>
+            <input type="text" name="subject" required>
 
-        <label for="message">Message:</label>
-        <textarea name="message" rows="5" required></textarea>
+            <label for="message">Message:</label>
+            <textarea name="message" rows="5" required></textarea>
 
-        <button type="submit">Send Response</button>
-    </form>
-    <a href="view_inquiries.php">⬅️ Back</a>
-
+            <button type="submit">Send Response</button>
+        </form>
+        <a href="view_inquiries.php" class="back-link">⬅️ Back</a> <!-- Corrected path to inquiries -->
+    </div>
 </body>
 </html>
