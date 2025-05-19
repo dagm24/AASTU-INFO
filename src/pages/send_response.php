@@ -51,9 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } catch (Exception $e) {
             echo "Mailer Error: " . $mail->ErrorInfo;
         }
-    } else {
-        echo "Missing required fields.";
-    }
+    } 
 }
 ?>
 
@@ -80,5 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <button type="submit">Send Response</button>
     </form>
+    <a href="view_inquiries.php">⬅️ Back</a>
+
 </body>
 </html>
