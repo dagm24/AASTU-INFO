@@ -123,10 +123,10 @@ if ($result->num_rows > 0) {
                 <span class="content2">Students can add or drop courses during specified times:<br><br>
                     Forms must be submitted to the Registrar office.<br>
                     Registered courses receive grades; not submitted grades count as F.<br><br>
-                      <?php foreach ($admission_data as $item): ?>
-                    <div class="subtitle"><?php echo htmlspecialchars($item['section_title']); ?></div><br>
-                    <div class="content"><?php echo nl2br(htmlspecialchars($item['content'])); ?></div>
-                <?php endforeach; ?>
+                     <?php if (!empty($admission_data)) : ?>
+    <div class="subtitle"><?php echo htmlspecialchars($admission_data[0]['section_title']); ?></div><br>
+    <div class="content"><?php echo nl2br(htmlspecialchars($admission_data[0]['content'])); ?></div>
+<?php endif; ?>
                     <div id="seemore1">
                         <a href="http://www.aastu.edu.et/registrar/wp-content/uploads/sites/6/2024/04/002-Course-Add-Drop-Form-OF.pdf">The form For Add And Drop</a>
                     </div><br><br>
@@ -140,6 +140,10 @@ if ($result->num_rows > 0) {
                     Consult academic advisors and explain reasons.<br>
                     Complete a withdrawal form on time.<br>
                     Complete clearance procedures to receive transcripts or recommendations.<br><br>
+                    <?php if (isset($admission_data[1])) : ?>
+    <div class="subtitle"><?php echo htmlspecialchars($admission_data[1]['section_title']); ?></div><br>
+    <div class="content"><?php echo nl2br(htmlspecialchars($admission_data[1]['content'])); ?></div>
+<?php endif; ?>
                     <div id="seemore2">
                         <ol>
                             <li>Complete the withdrawal form</li>
