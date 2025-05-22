@@ -1,23 +1,37 @@
 <?php
 include 'db_connect.php';
 
+// Fetch religious associations
 $sql = "SELECT * FROM religious_associations";
 $result = $conn->query($sql);
 
-
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['newsletter_email'])) {
-    $email = filter_var(trim($_POST['newsletter_email']), FILTER_SANITIZE_EMAIL);
+// Handle religious subscription form
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['religious_email'])) {
+    $email = filter_var(trim($_POST['religious_email']), FILTER_SANITIZE_EMAIL);
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $stmt = $conn->prepare("INSERT INTO newsletter_subscribers (email) VALUES (?)");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $stmt->close();
-        echo "<script>alert('Thank you for subscribing!');</script>";
+        // Check for duplicate
+        $check = $conn->prepare("SELECT id FROM religious_subscribers WHERE email = ?");
+        $check->bind_param("s", $email);
+        $check->execute();
+        $check->store_result();
+
+        if ($check->num_rows > 0) {
+            echo "<script>alert('You are already subscribed.');</script>";
+        } else {
+            $stmt = $conn->prepare("INSERT INTO religious_subscribers (email) VALUES (?)");
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $stmt->close();
+            echo "<script>alert('Thank you for subscribing!');</script>";
+        }
+
+        $check->close();
     } else {
         echo "<script>alert('Invalid email address.');</script>";
     }
 }
 
+// Track Telegram link clicks
 if (isset($_GET['click_id'])) {
     $id = intval($_GET['click_id']);
     $conn->query("INSERT INTO link_clicks (association_id) VALUES ($id)");
@@ -32,7 +46,7 @@ if (isset($_GET['click_id'])) {
     <link rel="stylesheet" href="../styles/religious.css">
 </head>
 <body>
-     <div class="navbar">
+    <div class="navbar">
         <div class="container">
             <div class="content">
                 <b class="aastu">
@@ -63,26 +77,28 @@ if (isset($_GET['click_id'])) {
             </div>
         </div>
     </div>
-</header>
 
-   <div class="body1">
+    <div class="body1">
         <div class="container1">
             <div class="container11">
-        <div class="head1">
-            <h3>Explore Our Diverse Religious Associations and Their Impact on Campus Life</h3>
+                <div class="head1">
+                    <h3>Explore Our Diverse Religious Associations and Their Impact on Campus Life</h3>
+                </div>
+                <br>
+                <div class="content">
+                    At AASTU, we celebrate a rich tapestry of religious associations that foster community and inclusivity. <br>
+                    These groups provide students with spiritual support and opportunities for engagement.
+                </div>
+                <br><br>
+                <ul class="ulstyl">
+                    <li>Join a community that shares your faith and values.</li>
+                    <li>Participate in events and activities throughout the year.</li>
+                    <li>Connect with like-minded individuals and grow spiritually.</li>
+                </ul>
+            </div>
+            <img src="../assets/images/Placeholder Image2.png" alt="" class="image1">
         </div>
-        <br>
-        <div class="content">
-            At AASTU, we celebrate a rich tapestry of religious associations that foster community and inclusivity. <br>
-            These groups provide students with spiritual support and opportunities for engagement.
-        </div> <br> <br>
-        <ul class="ulstyl">
-           <li>Join a community that shares your faith and values.</li>
-           <li>Participate in events and activities throughout the year.</li>
-           <li>Connect with like-minded individuals and grow spiritually.</li>
-        </ul></div>
-        <img src="../assets/images/Placeholder Image2.png" alt="" class="image1">
-    </div></div>
+    </div>
 
     <div class="body2">
         <h2>Religious Associations</h2>
@@ -96,7 +112,6 @@ if (isset($_GET['click_id'])) {
                         <a href="<?php echo htmlspecialchars($row['telegram_link']); ?>" target="_blank" onclick="trackClick(<?php echo $row['id']; ?>)">
                             <img src="../assets/images/telegram.png" width="20px">
                         </a>
-                          
                     </div>
                 </div>
             <?php endwhile; ?>
@@ -110,7 +125,6 @@ if (isset($_GET['click_id'])) {
     </script>
 
     <footer class="footer">
-         <footer class="footer">
         <div class="footer-content">
             <div class="footer-links-section">
                 <div class="brand">
@@ -139,13 +153,13 @@ if (isset($_GET['click_id'])) {
                 </nav>
             </div>
             <section class="newsletter">
-                <h3 class="footer-title">Subscribe</h3>
-                <p class="newsletter-text">Join our newsletter to stay up to date on features and releases.</p>
-                <form class="newsletter-form">
-                    <input type="email" class="newsletter-input" placeholder="Enter your email" />
+                <h3 class="footer-title">Religious Subscription</h3>
+                <p class="newsletter-text">Join our spiritual community and stay updated on upcoming religious events and inspiration.</p>
+                <form class="newsletter-form" method="POST">
+                    <input type="email" name="religious_email" placeholder="Enter your email" required class="newsletter-input" />
                     <button type="submit" class="newsletter-button">Subscribe</button>
                 </form>
-                <p class="consent-text">By subscribing you agree to our <span class="privacy-policy">Privacy Policy</span> and provide consent to receive updates from our company.</p>
+                <p class="consent-text">By subscribing, you agree to receive spiritual updates from AASTU INFO.</p>
             </section>
         </div>
 
@@ -166,13 +180,6 @@ if (isset($_GET['click_id'])) {
                     <img src="../assets/images/youtube.png" alt="YouTube" />
                 </div>
             </div>
-        </div>
-    </footer>
-        <div class="newsletter">
-            <form method="POST">
-                <input type="email" name="newsletter_email" placeholder="Enter your email" required>
-                <button type="submit">Subscribe</button>
-            </form>
         </div>
     </footer>
 </body>
