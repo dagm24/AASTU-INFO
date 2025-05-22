@@ -42,37 +42,94 @@ $clubs = $result->fetch_all(MYSQLI_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../assets/images/club-favicon.png">
-    <link rel="stylesheet" href="../styles/club.css">
+    <link rel="stylesheet" href="../../public_html/styles/club.css">
     <title>Clubs</title>
 </head>
 <body>
-<header>
-    <div class="navbar">
-        <div class="container">
+    <header>
+      <div class="home">
+        <div class="navbar">
+          <div class="container">
             <div class="content">
-                <b class="aastu">
-                    <span>AASTU</span>
-                    <span class="info">INFO</span>
-                </b>
+              <b class="aastu">
+                <span>AASTU</span>
+                <span class="info">INFO</span>
+              </b>
             </div>
             <div class="column">
-                <div class="nav-links">
-                    <div class="nav-link"><a href="../../index.html">Home</a></div>
-                    <div class="nav-link"><a href="./aboutus.php">About Us</a></div>
-                    <div class="nav-link"><a href="./academics.php">Academics</a></div>
-                    <div class="nav-link"><a href="./admission.php">Admission</a></div>
-                    <div class="nav-link"><a href="./studentunion.php">Student Union</a></div>
+              <div class="nav-links">
+                <div class="nav-link"><a href="../../index.html">Home</a></div>
+                <div class="nav-link">
+                  <a href="./aboutus.html">About Us</a>
                 </div>
-                <a class="contact-link" href="./contactUs.php">
-                    <button class="contact-btn">Contact Us</button>
-                </a>
+                <div class="nav-link">
+                  <a href="./acadamics.html">Academics</a>
+                </div>
+                <div class="nav-link">
+                  <a href="./admission.html">Admission</a>
+                </div>
+                <div class="nav-link">
+                  <a href="./student union.html">Student Union</a>
+                </div>
+                <div class="nav-link-dropdown">
+                  <div class="nav-link">Student Life</div>
+                  <img
+                    class="chevron-down-icon"
+                    alt="Dropdown Icon"
+                    src="../assets/images/chevron.png"
+                  />
+                  <div class="dropdown-content">
+                    <div class="dropdown-item">
+                      <a href="./club.html">Clubs</a>
+                    </div>
+                    <div class="dropdown-item">
+                      <a href="./blocks.html">Blocks</a>
+                    </div>
+                    <div class="dropdown-item">
+                      <a href="./religious.html"
+                        >Religious Association</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Contact Us Button inside the navbar -->
+              <a class="contact-link" href="./contactUs.html">
+              <button class="contact-btn">
+                <span class="contact-btn-text">Contact Us</span>
+              </button>
+              </a>
             </div>
+          </div>
         </div>
-    </div>
-</header>
-<main>
-    <section class="clubs-section">
-        <h1>University Clubs</h1>
+      </div>
+    </header>
+
+  <main>
+         <section class="section1">
+          <div class="header-container">
+            <span>clubs</span>
+            <h1 class="firstheader">
+              <strong style="color: #a67a0f">Explore</strong> Our Diverse
+              University Clubs
+            </h1>
+          </div>
+          <p class="leftpara" style="font-size: 20px">
+            At AASTU, we offer a vibrant array of clubs that cater to various
+            interests and passions. Whether you're looking to enhance your
+            academic journey, build your career, engage socially, or celebrate
+            cultural diversity, there's a club for you. Join us in fostering
+            connections and creating memorable experiences!
+          </p>
+        </section>
+
+    <article id="article2">
+       <section class="firstsec">
+          <h1>Clubs</h1>
+          <p>Origin and vibe print of University clubs and activities</p>
+        </section>
+
+        <section class="secondsec">
         <div class="cardssec">
             <?php foreach ($clubs as $club): ?>
                 <div class="card">
@@ -114,30 +171,94 @@ $clubs = $result->fetch_all(MYSQLI_ASSOC);
                 </form>
             </div>
         <?php endif; ?>
-    </section>
-</main>
-<footer class="footer">
-    <div class="footer-content">
+        </section>
+    </article>
+
+  <footer class="footer">
+      <div class="footer-content">
         <div class="footer-links-section">
-            <div class="brand">
-                <b class="brand-name">
-                    <span>AASTU</span>
-                    <span class="brand-info">INFO</span>
-                </b>
-            </div>
-            <nav class="footer-column">
-                <h3 class="footer-title">Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="../../index.html" class="footer-link">Home</a></li>
-                    <li><a href="./aboutus.php" class="footer-link">About us</a></li>
-                    <li><a href="./academics.php" class="footer-link">Academics</a></li>
-                    <li><a href="./admission.php" class="footer-link">Admission</a></li>
-                    <li><a href="./studentunion.php" class="footer-link">Student Union</a></li>
-                </ul>
-            </nav>
+          <div class="brand">
+            <b class="brand-name">
+              <span>AASTU</span>
+              <span class="brand-info">INFO</span>
+            </b>
+          </div>
+
+          <nav class="footer-column">
+            <h3 class="footer-title">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="../../index.html" class="footer-link">Home</a></li>
+              <li><a href="./aboutus.html" class="footer-link">About us</a></li>
+              <li>
+                <a href="./acadamics.html" class="footer-link"
+                  >Academics</a
+                >
+              </li>
+              <li><a href="./admission.html" class="footer-link">Admission</a></li>
+              <li>
+                <a href="./student union.html" class="footer-link"
+                  >Student union</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <nav class="footer-column">
+            <h3 class="footer-title">Student Life</h3>
+            <ul class="footer-links">
+              <li><a href="./club.html" class="footer-link">Clubs</a></li>
+              <li><a href="./blocks.html" class="footer-link">Blocks</a></li>
+              <li>
+                <a href="./religious.html" class="footer-link"
+                  >Religious Association</a
+                >
+              </li>
+            </ul>
+          </nav>
         </div>
-    </div>
-</footer>
+
+        <section class="newsletter">
+          <h3 class="footer-title">Subscribe</h3>
+          <p class="newsletter-text">
+            Join our newsletter to stay up to date on features and releases.
+          </p>
+          <form class="newsletter-form">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Enter your email"
+            />
+            <button type="submit" class="newsletter-button">Subscribe</button>
+          </form>
+          <p class="consent-text">
+            By subscribing you agree to with our
+            <span class="privacy-policy">Privacy Policy</span> and provide
+            consent to receive updates from our company.
+          </p>
+        </section>
+      </div>
+
+      <div class="footer-credits">
+        <div class="divider"></div>
+        <div class="credits-row">
+          <p class="copyright">© 2025 AASTU INFO. All rights reserved.</p>
+          <nav class="policy-links">
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+            <a href="#" class="footer-link">Cookies Settings</a>
+          </nav>
+          <div class="social-icons">
+            <img src="../assets/images/facebook.png" alt="Facebook" />
+            <img src="../assets/images/instagram.png" alt="Instagram" />
+            <img src="../assets/images/twitter.png" alt="X" />
+            <img src="../assets/images/linkedin.png" alt="LinkedIn" />
+            <img src="../assets/images/youtube.png" alt="YouTube" />
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
 </body>
+  <script src="../scripts/club.js"></script>
 </html>
 <?php $conn->close(); ?>

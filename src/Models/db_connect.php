@@ -1,13 +1,19 @@
-<?php
-require_once __DIR__ . '/../../vendor/autoload.php'; // Load environment variables using a library like vlucas/phpdotenv
+<!-- ?php
+require_once __DIR__ . '/../../vendor/autoload.php'; // Load environment variables using a library like vlucas/phpdotenv 
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
-$dotenv->load();
+$dotenv->load();-->
 
-$servername = $_ENV['DB_HOST'];
-$username = $_ENV['DB_USER'];
-$password = $_ENV['DB_PASS'];
-$dbname = $_ENV['DB_NAME'];
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "aastuinfoadmin";
+
+//  $servername = $_ENV['DB_HOST'];
+// $username = $_ENV['DB_USER'];
+// $password = $_ENV['DB_PASS'];
+// $dbname = $_ENV['DB_NAME']; 
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
