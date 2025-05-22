@@ -70,6 +70,34 @@ if ($result->num_rows > 0) {
                         <li>Continuing Education & Summer Studies</li>
                     </ul><br>
                     <a href="http://demo.wpzoom.com/academica-pro-3/contact/">Apply Today!</a><br><br>
+                    <div class="application-form-section">
+    <h2 class="subtitle"> Apply Online </h2>
+    <form action="submit_application.php" method="POST" class="application-form">
+        <label for="full_name">Full Name:</label>
+        <input type="text" name="full_name" id="full_name" required> <br><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" name="email" id="email" required> <br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" name="phone" id="phone" required> <br><br>
+
+        <label for="gpa">High School GPA:</label>
+        <input type="number" name="gpa" id="gpa" min="0" max="4" step="0.01" required> <br><br>
+
+        <label for="department">Department of Interest:</label>
+        <select name="department" id="department" required>
+            <option value="">-- Select Department --</option>
+            <option value="Software Engineering">Software Engineering</option>
+            <option value="Electrical Engineering">Electrical Engineering</option>
+            <option value="Mechanical Engineering">Mechanical Engineering</option>
+            <option value="Civil Engineering">Civil Engineering</option>
+        </select> <br><br>
+
+        <button type="submit" class="submit-btn">Submit Application</button>
+    </form>
+</div>
+
                 </div>
                 <button class="Explore" id="explore">Explore &#8250;</button>
             </div>
@@ -140,7 +168,7 @@ if ($result->num_rows > 0) {
                     Consult academic advisors and explain reasons.<br>
                     Complete a withdrawal form on time.<br>
                     Complete clearance procedures to receive transcripts or recommendations.<br><br>
-                    <?php if (isset($admission_data[1])) : ?>
+                   <?php if (isset($admission_data[1])) : ?>
     <div class="subtitle"><?php echo htmlspecialchars($admission_data[1]['section_title']); ?></div><br>
     <div class="content"><?php echo nl2br(htmlspecialchars($admission_data[1]['content'])); ?></div>
 <?php endif; ?>
@@ -160,6 +188,7 @@ if ($result->num_rows > 0) {
                 </span>
             </div>
         </div>
+        
     </div>
 
     <footer class="footer">
@@ -225,4 +254,5 @@ if ($result->num_rows > 0) {
 </html>
 
 <?php $conn->close(); ?>
+
 
