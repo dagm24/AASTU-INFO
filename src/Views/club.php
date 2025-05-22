@@ -106,6 +106,7 @@ $clubs = $result->fetch_all(MYSQLI_ASSOC);
     </header>
 
   <main>
+    <article id="article1">
          <section class="section1">
           <div class="header-container">
             <span>clubs</span>
@@ -122,14 +123,65 @@ $clubs = $result->fetch_all(MYSQLI_ASSOC);
             connections and creating memorable experiences!
           </p>
         </section>
+         <section class="section3">
+          <div class="button-container">
+            <a href="../pages/Join_form.html">
+              <button class="upper-join-btn">Join</button>
+            </a>
+            <span id="learn-more">Learn More</span>
+          </div>
+
+          <div id="add-info">
+            <h3>Discover Your Passion with Our University Clubs</h3>
+            <p>
+              At our university, we believe that learning extends beyond the
+              classroom. Our diverse range of clubs offers students the
+              opportunity to explore their interests, develop new skills, and
+              connect with like-minded peers.
+            </p>
+
+            <h4>Why Join a Club?</h4>
+            <ul>
+              <li>
+                <strong>Expand Your Network:</strong> Meet new friends and build
+                connections with students who share your interests.
+              </li>
+              <li>
+                <strong>Develop Skills:</strong> Gain valuable experience and
+                enhance your resume with leadership roles and hands-on
+                activities.
+              </li>
+              <li>
+                <strong>Have Fun:</strong> Enjoy a variety of events, workshops,
+                and social gatherings.
+              </li>
+            </ul>
+
+            <h4>How to Join</h4>
+            <ol>
+              <li>
+                Browse through our list of clubs to find one that matches your
+                interests.
+              </li>
+              <li>
+                Click on the club to learn more about their activities and
+                requirements.
+              </li>
+              <li>
+                Use the Join button to submit your membership application.
+              </li>
+            </ol>
+          </div>
+        </section>
+    </article>
 
     <article id="article2">
-       <section class="firstsec">
+        <section class="firstsec">
           <h1>Clubs</h1>
           <p>Origin and vibe print of University clubs and activities</p>
         </section>
 
-        <section class="secondsec">
+    <section class="secondsec">
         <div class="cardssec">
             <?php foreach ($clubs as $club): ?>
                 <div class="card">
@@ -156,6 +208,9 @@ $clubs = $result->fetch_all(MYSQLI_ASSOC);
                 </div>
             <?php endforeach; ?>
         </div>
+
+        <button id="viewall-btn">View All</button>
+        
         <?php if ($isAdmin): ?>
             <div class="add-club-form">
                 <h2>Add New Club</h2>
