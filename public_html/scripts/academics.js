@@ -51,7 +51,7 @@ window.onload = function () {
         academicsContainer.innerHTML =
           "<p>Failed to load academic programs. Please try again later.</p>";
       });
-  }
+  }      
 };
 
 function learnmore() {

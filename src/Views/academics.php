@@ -120,7 +120,7 @@ For more detailed information, you can visit the AASTU website.
 
         </section>
         <section class="acadamics-image">
-          <img src="../assets/images/academics.jfif" alt="image">
+          <img src="../../public_html/assets/images/academics.jfif " alt="image">
         </section>
       </article>
 
@@ -257,7 +257,7 @@ For more detailed information, you can visit the AASTU website.
         </div>
       </div>
     </footer>
- <script src="../scripts/acadamics.js"></script>
+ <script src="../../public_html/scripts/academics.js"></script>
 </body>
 </html>
 <?php $conn->close(); ?>
