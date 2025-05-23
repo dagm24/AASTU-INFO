@@ -1,10 +1,10 @@
-<!-- filepath: c:\Users\Iyosiyas\Documents\DESKTOP\Acadamics\AASTU-INFO\src\Views\academics.php -->
 <?php
 session_start();
 include '../Models/db_connect.php';
-
 // Check if the user is an admin
 $isAdmin = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
+
+$filter = $_GET['filter'] ?? 'engineering'; // Default to engineering
 
 // Handle CRUD operations
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $isAdmin) {
@@ -30,8 +30,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $isAdmin) {
     }
 }
 
-// Fetch all academic programs
-$result = $conn->query("SELECT * FROM academics");
+// Fetch all academic programs 
+if ($filter === 'all') {
+    $result = $conn->query("SELECT * FROM academics ORDER BY id ASC");
+} elseif ($filter === 'applied') {
+    $result = $conn->query("SELECT * FROM academics WHERE type = 'applied' ORDER BY id ASC");
+} else { // engineering
+    $result = $conn->query("SELECT * FROM academics WHERE type = 'engineering' ORDER BY id ASC");
+}
 $programs = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -134,14 +140,54 @@ For more detailed information, you can visit the AASTU website.
     <section class="degreeboxes-container">
         <nav class="second-nav">
   <button id="viewall-btn">View All</button>
-  <button class="nav2" data-target="engineering">College of Engineering</button>
-  <button class="nav2" data-target="applied">College of Applied Science</button>
+  <button class="nav2" id="engineering-btn" data-target="engineering">College of Engineering</button>
+  <button class="nav2" id="applied-btn" data-target="applied">College of Applied Science</button>
 </nav>
 
-        <div id="engineering-departments">
-  <span id="collageofEngineering">College Of Engineering</span>
 
-            <?php foreach ($programs as $program): ?>
+<section class="degreeboxes-container">
+    <?php if ($filter === 'all' || $filter === 'engineering'): ?>
+
+<div id="engineering-departments">
+    <span id="collageofEngineering">College Of Engineering</span>
+    <?php
+    $engCount = 0;
+    $hiddenStarted = false;
+    foreach ($programs as $program):
+        if ($program['type'] === 'engineering'):
+            $engCount++;
+            if ($engCount === 4) {
+                // Start hidden container after the first 3
+                echo '<div id="hidden-engineering" >';
+                $hiddenStarted = true;
+            }
+    ?>
+        <div class="bachelordegree-box">
+            <h2><?= htmlspecialchars($program['program_name']) ?></h2>
+            <p><?= htmlspecialchars($program['description']) ?></p>
+            <p><strong>Location:</strong> <?= htmlspecialchars($program['location']) ?></p>
+            <p><strong>Duration:</strong> <?= htmlspecialchars($program['duration']) ?> years</p>
+            <?php if ($isAdmin): ?>
+                <form method="POST" class="crud-form">
+                    <input type="hidden" name="id" value="<?= $program['id'] ?>">
+                    <button type="submit" name="action" value="edit">Edit</button>
+                    <button type="submit" name="action" value="delete">Delete</button>
+                </form>
+            <?php endif; ?>
+        </div>
+    <?php
+        endif;
+    endforeach;
+    if ($hiddenStarted) echo '</div>'; // Close hidden container if it was opened
+    ?>
+</div>
+    <?php endif; ?>
+
+    <?php if ($filter === 'all' || $filter === 'applied'): ?>
+    <div id="applied-departments">
+        <span id="collegeofApplied">College Of Natural and Applied Sciences</span>
+        <?php foreach ($programs as $program): ?>
+            <?php if ($program['type'] === 'applied'): ?>
                 <div class="bachelordegree-box">
                     <h2><?= htmlspecialchars($program['program_name']) ?></h2>
                     <p><?= htmlspecialchars($program['description']) ?></p>
@@ -155,7 +201,11 @@ For more detailed information, you can visit the AASTU website.
                         </form>
                     <?php endif; ?>
                 </div>
-            <?php endforeach; ?>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
+</section>
         </div>
         <?php if ($isAdmin): ?>
             <div class="add-program-form">

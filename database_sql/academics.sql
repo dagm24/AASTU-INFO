@@ -24,3 +24,18 @@ INSERT INTO academics (program_name, description, location, duration) VALUES
 ('Bachelor of Science in Food Science', 'Offers a comprehensive education in food science, focusing on food processing, safety, and quality management.', 'Addis Ababa', 4),
 ('Bachelor of Science in Geology', 'Offers a comprehensive education in geology, focusing on earth sciences, mineral exploration, and environmental geology.', 'Addis Ababa', 4),
 ('Bachelor of Science in Industrial Chemistry ', 'The Industrial Chemistry Department focuses on the application of chemical principles and processes in industrial settings. It prepares students to work in various industries, including pharmaceuticals, petrochemicals, and materials science by providing a strong foundation in chemistry, engineering, and technology. The curriculum emphasizes practical skills, innovation, and sustainable practices to address real-world challenges in industrial production and environmental management.', 'Addis Ababa', 4);
+
+-- Set type to 'engineering' for all engineering programs
+UPDATE academics
+SET type = 'engineering'
+WHERE program_name LIKE '%Engineering%';
+
+-- Set type to 'applied' for applied science programs
+UPDATE academics
+SET type = 'applied'
+WHERE program_name IN (
+  'Bachelor of Science in Biotechnology',
+  'Bachelor of Science in Food Science',
+  'Bachelor of Science in Geology',
+  'Bachelor of Science in Industrial Chemistry'
+);

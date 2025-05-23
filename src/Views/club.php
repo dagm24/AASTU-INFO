@@ -314,6 +314,6 @@ $clubs = $result->fetch_all(MYSQLI_ASSOC);
     </footer>
   </main>
 </body>
-  <script src="../scripts/club.js"></script>
+<script src="../../public_html/scripts/club.js"></script>
 </html>
 <?php $conn->close(); ?>

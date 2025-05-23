@@ -322,6 +322,9 @@ pre {
   color: #fff;
   background-color: #a67a0f;
 }
+.nav2:active{
+opacity: 0.3;
+}
 
 /*footer*/
 .footer {
@@ -525,8 +528,8 @@ pre {
 
 #viewall-btn {
   padding: 10px 20px;
-  background-color: #a67a0f;
-  color: white;
+  color:  #fff;
+  background-color:#a67a0f  ;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -535,10 +538,12 @@ pre {
   transition: all 0.3s ease;
   margin: 20px 0;
 }
-
-#viewall-btn:hover {
+#viewall-btn:hover{
+  color: white;
   background-color: #8c620d;
-  transform: translateY(-1px);
+}
+#viewall-btn:active{
+  opacity: 0.3;
 }
 
 
@@ -586,6 +591,10 @@ pre {
 #engineering-departments,
 #applied-departments {
   width: 100%;
+  transition: all 0.3s ease;
+}
+#applied-departments {
+  display: none;
   transition: all 0.3s ease;
 }
 

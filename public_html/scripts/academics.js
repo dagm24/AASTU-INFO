@@ -1,7 +1,14 @@
+onload = function () {
+  window.alert("hello");
+}
+
 const lmbtn = document.getElementById("learnmore-button");
 const lmcont = document.getElementById("learnmore-container");
 const nextportion = document.getElementsByClassName("second-article")[0];
 const viewall = document.getElementById("viewall-btn");
+const engbtn = document.getElementById("engineering-btn");
+const appbtn = document.getElementById("applied-btn");
+
 const hiddenEng = document.getElementById("hidden-engineering");
 const appliedDepts = document.getElementById("applied-departments");
 const engineeringDepts = document.getElementById("engineering-departments");
@@ -24,6 +31,16 @@ window.onload = function () {
   if (viewall) {
     viewall.onclick = null;
     viewall.addEventListener("click", viewalldept);
+  }
+  if(engbtn){
+    engbtn.onclick = null;
+    engbtn.addEventListener("click",viewengdept);
+  }
+
+
+  if(appbtn){
+    appbtn.onclick = null;
+    appbtn.addEventListener("click",viewappdept);
   }
 
   // Add event listeners for department buttons
@@ -51,8 +68,7 @@ window.onload = function () {
         academicsContainer.innerHTML =
           "<p>Failed to load academic programs. Please try again later.</p>";
       });
-  }      
-};
+  };
 
 function learnmore() {
   if (!lmcont) return;
@@ -74,37 +90,38 @@ function learnmore() {
   }
 }
 
-function viewalldept() {
-  if (!hiddenEng || !appliedDepts) return;
-
-  const isHidden =
-    hiddenEng.style.display === "none" || !hiddenEng.style.display;
-
-  if (isHidden) {
-    hiddenEng.style.display = "block";
-    appliedDepts.style.display = "block";
-    viewall.textContent = "Show Less";
-  } else {
-    hiddenEng.style.display = "none";
-    appliedDepts.style.display = "none";
-    viewall.textContent = "View All";
-  }
-}
-
 function showDepartments(target) {
   // Hide all departments first
+  engineeringDepts.style.display = "none";
   hiddenEng.style.display = "none";
   appliedDepts.style.display = "none";
 
   if (target === "engineering") {
     engineeringDepts.style.display = "block";
-    appliedDepts.style.display = "none";
     hiddenEng.style.display = "block";
   } else if (target === "applied") {
-    engineeringDepts.style.display = "none";
     appliedDepts.style.display = "block";
   }
 
-  // Reset view all button
+  // Always reset view all button
   viewall.textContent = "View All";
+}
+
+function viewalldept() {
+  if (!engineeringDepts || !appliedDepts || !hiddenEng) return;
+
+  const isViewAll = viewall.textContent === "View All";
+
+  if (isViewAll) {
+    engineeringDepts.style.display = "block";
+    hiddenEng.style.display = "block";
+    appliedDepts.style.display = "block";
+    viewall.textContent = "Show Less";
+  } else {
+    engineeringDepts.style.display = "block";
+    hiddenEng.style.display = "none";
+    appliedDepts.style.display = "none";
+    viewall.textContent = "View All";
+  }
+}
 }
