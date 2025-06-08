@@ -112,7 +112,7 @@ $programs = $result->fetch_all(MYSQLI_ASSOC);
   Collage of Natural and Applied Science</div>
           </div>
           <button id="learnmore-button">Learn More</button>
-          <div id ="learnmore-container" >
+          <div id ="learnmore-container" style="display:none;">
             Addis Ababa Science and Technology University (AASTU) is a prominent institution in Ethiopia, established in 2011. It is the first university in Ethiopia dedicated to science and technology, reflecting the country's commitment to technological advancement. The university offers a wide range of undergraduate, 
             postgraduate, and PhD programs across its five science and technology colleges1
 AASTU's academic programs are designed to meet both national and continental demands, with a

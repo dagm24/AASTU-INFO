@@ -49,4 +49,22 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+// // Toggle learn more section
+  const learnMoreBtn = document.getElementById("learnmore-button");
+  const learnMoreContainer = document.getElementById("learnmore-container");
+
+  if (learnMoreBtn && learnMoreContainer) {
+    learnMoreBtn.addEventListener("click", function () {
+      if (
+        learnMoreContainer.style.display === "none" ||
+        learnMoreContainer.style.display === ""
+      ) {
+        learnMoreContainer.style.display = "block";
+        learnMoreBtn.textContent = "Show Less";
+      } else {
+        learnMoreContainer.style.display = "none";
+        learnMoreBtn.textContent = "Learn More";
+      }
+    });
+  }
 });
