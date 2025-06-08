@@ -76,7 +76,7 @@ $clubs = $result->fetch_all(MYSQLI_ASSOC);
                   <img
                     class="chevron-down-icon"
                     alt="Dropdown Icon"
-                    src="../assets/images/chevron.png"
+                    src=" AASTU-INFO/public_html/assets/images/chevron.png"
                   />
                   <div class="dropdown-content">
                     <div class="dropdown-item">

@@ -16,3 +16,8 @@ INSERT INTO clubs (club_name, description, location, members_count, image_path, 
 ('CGI Club', ' This club is stablished in order to support students learndesigning 2D ,3D as well as animation characters. Animationmovies also prepared by members of this club. The club will give you all the knowledge to do this.', 'Student Union', 150, 'CGI.jpg', 'https://t.me/cgi_club'),
 ('Females Club', 'Females Club is organized inorder to Support Female students of Our cumpus starting from giving some orientation about campus life for freshs, as well as supporting in the acadamic processes. And abling the females use opportunities provided for females in our Cumpus as well nationally.', 'Innovation Center', 400, 'Females.jpg', 'https://t.me/females_club'),
 ('Book club', 'The background of all enterprenours, succeed people, are not separated from reading , toda tommorow leaders. This club will enhance our reading cu provide different life changing books for members', Union Hall', 100, 'Book club 'https://t.me/book_club');
+
+
+ALTER TABLE club
+ADD COLUMN type VARCHAR(50) NOT NULL DEFAULT 'specific';
+

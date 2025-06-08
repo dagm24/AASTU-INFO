@@ -50,6 +50,8 @@ $programs = $result->fetch_all(MYSQLI_ASSOC);
     <title>Academics</title>
 </head>
 <body>
+
+<!-- ***************************HEADER******************************** -->
  <header>
     <div class="home">
       <div class="navbar">
@@ -88,6 +90,8 @@ $programs = $result->fetch_all(MYSQLI_ASSOC);
       </div>
     </div>
   </header>
+
+  <!-- *****************************MAIN******************************** -->
 <main>
      <article class="first-article">
         <section class="acadamics-text">
@@ -108,7 +112,7 @@ $programs = $result->fetch_all(MYSQLI_ASSOC);
   Collage of Natural and Applied Science</div>
           </div>
           <button id="learnmore-button">Learn More</button>
-          <div id ="learnmore-container"  >
+          <div id ="learnmore-container" >
             Addis Ababa Science and Technology University (AASTU) is a prominent institution in Ethiopia, established in 2011. It is the first university in Ethiopia dedicated to science and technology, reflecting the country's commitment to technological advancement. The university offers a wide range of undergraduate, 
             postgraduate, and PhD programs across its five science and technology colleges1
 AASTU's academic programs are designed to meet both national and continental demands, with a
@@ -146,9 +150,9 @@ For more detailed information, you can visit the AASTU website.
 
 
 <section class="degreeboxes-container">
-    <?php if ($filter === 'all' || $filter === 'engineering'): ?>
 
-<div id="engineering-departments">
+<!-- Engineering Departments -->
+<div id="engineering-departments" style="display:block;">
     <span id="collageofEngineering">College Of Engineering</span>
     <?php
     $engCount = 0;
@@ -157,8 +161,7 @@ For more detailed information, you can visit the AASTU website.
         if ($program['type'] === 'engineering'):
             $engCount++;
             if ($engCount === 4) {
-                // Start hidden container after the first 3
-                echo '<div id="hidden-engineering" >';
+                echo '<div id="hidden-engineering" style="display:none;">';
                 $hiddenStarted = true;
             }
     ?>
@@ -178,52 +181,38 @@ For more detailed information, you can visit the AASTU website.
     <?php
         endif;
     endforeach;
-    if ($hiddenStarted) echo '</div>'; // Close hidden container if it was opened
+    if ($hiddenStarted) echo '</div>';
     ?>
 </div>
-    <?php endif; ?>
 
-    <?php if ($filter === 'all' || $filter === 'applied'): ?>
-    <div id="applied-departments">
-        <span id="collegeofApplied">College Of Natural and Applied Sciences</span>
-        <?php foreach ($programs as $program): ?>
-            <?php if ($program['type'] === 'applied'): ?>
-                <div class="bachelordegree-box">
-                    <h2><?= htmlspecialchars($program['program_name']) ?></h2>
-                    <p><?= htmlspecialchars($program['description']) ?></p>
-                    <p><strong>Location:</strong> <?= htmlspecialchars($program['location']) ?></p>
-                    <p><strong>Duration:</strong> <?= htmlspecialchars($program['duration']) ?> years</p>
-                    <?php if ($isAdmin): ?>
-                        <form method="POST" class="crud-form">
-                            <input type="hidden" name="id" value="<?= $program['id'] ?>">
-                            <button type="submit" name="action" value="edit">Edit</button>
-                            <button type="submit" name="action" value="delete">Delete</button>
-                        </form>
-                    <?php endif; ?>
-                </div>
-            <?php endif; ?>
-        <?php endforeach; ?>
-    </div>
-    <?php endif; ?>
-</section>
-        </div>
-        <?php if ($isAdmin): ?>
-            <div class="add-program-form">
-                <h2>Add New Program</h2>
-                <form method="POST">
-                    <input type="hidden" name="action" value="add">
-                    <input type="text" name="program_name" placeholder="Program Name" required>
-                    <textarea name="description" placeholder="Description" required></textarea>
-                    <input type="text" name="location" placeholder="Location" required>
-                    <input type="number" name="duration" placeholder="Duration (years)" required>
-                    <button type="submit">Add Program</button>
+<!-- Applied Science Departments -->
+<div id="applied-departments" style="display:none;">
+    <span id="collageofApplied">College Of Applied Sciences</span>
+<?php foreach ($programs as $program): ?>
+    <?php if (strtolower(trim($program['type'])) === 'applied'): ?>
+         <div class="bachelordegree-box">
+            <h2><?= htmlspecialchars($program['program_name']) ?></h2>
+            <p><?= htmlspecialchars($program['description']) ?></p>
+            <p><strong>Location:</strong> <?= htmlspecialchars($program['location']) ?></p>
+            <p><strong>Duration:</strong> <?= htmlspecialchars($program['duration']) ?> years</p>
+            <?php if ($isAdmin): ?>
+                <form method="POST" class="crud-form">
+                    <input type="hidden" name="id" value="<?= $program['id'] ?>">
+                    <button type="submit" name="action" value="edit">Edit</button>
+                    <button type="submit" name="action" value="delete">Delete</button>
                 </form>
-            </div>
-        <?php endif; ?>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+<?php endforeach; ?>
+</div>
+
     </section>
     </article>
 </main>
 
+
+<!-- *******************************FOOTER******************************* -->
   <footer class="footer"></footer>
       <div class="footer-content">
         <div class="footer-links-section">
