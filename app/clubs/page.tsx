@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Code, Sparkles, Brain, Film, Venus, BookOpen, MapPin, Users, Send } from "lucide-react"
+import { Code, Sparkles, Brain, Film, HeartHandshake, BookOpen, MapPin, Users, Send } from "lucide-react"
 import { PageHero } from "@/components/page-hero"
 import { clubs, type Club } from "@/lib/data"
 
@@ -14,7 +14,7 @@ const iconMap: Record<Club["icon"], typeof Code> = {
   sparkles: Sparkles,
   brain: Brain,
   film: Film,
-  venus: Venus,
+  venus: HeartHandshake,
   book: BookOpen,
 }
 

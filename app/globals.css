@@ -31,32 +31,32 @@
 :root {
   --radius: 0.75rem;
 
-  /* Neutrals */
-  --background: oklch(0.99 0.004 240);
-  --foreground: oklch(0.21 0.03 250);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.21 0.03 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.21 0.03 250);
+  /* Neutrals — clean white like the AASTU site */
+  --background: #ffffff;
+  --foreground: #0b0f34;
+  --card: #ffffff;
+  --card-foreground: #0b0f34;
+  --popover: #ffffff;
+  --popover-foreground: #0b0f34;
 
-  /* Primary: deep AASTU blue */
-  --primary: oklch(0.42 0.13 255);
-  --primary-foreground: oklch(0.99 0.004 240);
+  /* Primary: AASTU deep navy #0b0f34 */
+  --primary: #0b0f34;
+  --primary-foreground: #ffffff;
 
-  /* Secondary: soft blue tint */
-  --secondary: oklch(0.95 0.02 250);
-  --secondary-foreground: oklch(0.3 0.06 255);
+  /* Secondary: soft navy tint */
+  --secondary: #eef0f7;
+  --secondary-foreground: #0b0f34;
 
-  --muted: oklch(0.96 0.01 248);
-  --muted-foreground: oklch(0.52 0.03 252);
+  --muted: #f5f5f8;
+  --muted-foreground: #565b6e;
 
-  /* Accent: warm gold */
-  --accent: oklch(0.78 0.14 78);
-  --accent-foreground: oklch(0.28 0.05 60);
+  /* Accent: AASTU gold #a67a0f */
+  --accent: #a67a0f;
+  --accent-foreground: #0b0f34;
 
-  --border: oklch(0.9 0.01 250);
-  --input: oklch(0.9 0.01 250);
-  --ring: oklch(0.42 0.13 255);
+  --border: #e4e6ef;
+  --input: #e4e6ef;
+  --ring: #a67a0f;
 }
 
 @layer base {
